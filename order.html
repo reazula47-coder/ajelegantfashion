@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AJELEGANTFASHION | Premium Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#060606;--surface:#121212;--gold:#d4af37;--gold-soft:#f4de8f;--text:#f8f2e5;--muted:#bfb6a2;--ok:#4fe0ad;--danger:#ff6a88}
+    *{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text)}
+    .container{max-width:1160px;margin:0 auto;padding:18px}
+    .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+    .logo{font:700 1.2rem Cinzel,serif;color:var(--gold-soft)}
+    .links a{color:var(--text);text-decoration:none;margin-left:8px;padding:8px 10px;border-radius:999px;font-weight:600;font-size:.9rem}
+    .links a:hover{background:rgba(212,175,55,.1);color:var(--gold-soft)}
+    .layout{display:grid;grid-template-columns:1.18fr .82fr;gap:14px}
+    .panel{background:var(--surface);border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:18px;box-shadow:0 16px 34px rgba(0,0,0,.45)}
+    h1{font:700 clamp(1.6rem,3.4vw,2.3rem) Cinzel,serif;color:var(--gold-soft);margin-bottom:6px}
+    .sub{color:var(--muted);margin-bottom:12px}
+    label{display:block;color:var(--muted);font-size:.92rem;margin-bottom:6px}
+    input,textarea,select{width:100%;padding:11px;border-radius:10px;border:1px solid rgba(212,175,55,.24);background:#0e0e0e;color:var(--text);margin-bottom:10px;font:inherit}
+    .pay{display:grid;gap:8px;margin:8px 0 14px}.choice{display:flex;gap:8px;align-items:center;border:1px solid rgba(212,175,55,.22);border-radius:10px;padding:10px;background:#0e0e0e}.choice input{width:auto;margin:0;accent-color:var(--gold)}
+    .btn{border:none;border-radius:999px;padding:12px 20px;background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:#120e00;font-weight:700;cursor:pointer}
+    .status{margin-top:10px;min-height:24px}
+    .sum li{list-style:none;display:flex;justify-content:space-between;border-bottom:1px dashed rgba(212,175,55,.2);padding:7px 0;color:var(--muted)}
+    .sum strong{color:var(--text)}
+    .links-pay{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.links-pay a{text-decoration:none;background:var(--gold-soft);color:#110d00;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.86rem}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top"><div class="logo">AJELEGANTFASHION 💎 Checkout</div><div class="links"><a href="index.html">Home</a><a href="product.html">Products</a><a href="order.html">Checkout</a></div></div>
+
+    <div class="layout">
+      <section class="panel">
+        <h1>Checkout + Order Form 🔥</h1>
+        <p class="sub">Super premium, mobile-friendly form for fast Facebook Ads conversions.</p>
+        <form id="orderForm" novalidate>
+          <label for="name">Name</label><input id="name" name="name" required placeholder="Your full name" />
+          <label for="phone">Phone</label><input id="phone" name="phone" inputmode="tel" required placeholder="01XXXXXXXXX" />
+          <label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com" />
+          <label for="address">Address</label><textarea id="address" name="address" rows="3" required placeholder="Delivery address"></textarea>
+          <label for="product">Product Selection</label>
+          <select id="product" name="product" required>
+            <option value="">Choose a product</option>
+            <option>Royal Shirt Signature - ৳2,450</option>
+            <option>Golden Hour Dress - ৳3,290</option>
+            <option>Shirt + Dress Combo - ৳5,199</option>
+            <option>Premium Capsule Pack - ৳7,850</option>
+          </select>
+          <label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" min="1" value="1" required />
+          <p class="sub">Payment Method</p>
+          <div class="pay">
+            <label class="choice"><input type="radio" name="payment" value="PayPal" required /> PayPal</label>
+            <label class="choice"><input type="radio" name="payment" value="Stripe" /> Stripe</label>
+            <label class="choice"><input type="radio" name="payment" value="Facebook Pay" /> Facebook Pay</label>
+          </div>
+          <button type="submit" class="btn">Submit Premium Order ✅</button>
+          <div id="status" class="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <aside class="panel">
+        <h2 style="font:700 1.5rem Cinzel,serif;color:var(--gold-soft);margin-bottom:10px">Order Summary</h2>
+        <ul class="sum">
+          <li><span>Product</span><strong id="sProduct">-</strong></li>
+          <li><span>Quantity</span><strong id="sQty">1</strong></li>
+          <li><span>Estimated Total</span><strong id="sTotal">৳0</strong></li>
+        </ul>
+        <p class="sub" style="margin-top:14px">Payment Links</p>
+        <div class="links-pay"><a href="https://www.paypal.com" target="_blank" rel="noopener noreferrer">PayPal</a><a href="https://buy.stripe.com" target="_blank" rel="noopener noreferrer">Stripe</a><a href="https://www.facebook.com/pay" target="_blank" rel="noopener noreferrer">Facebook Pay</a></div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('orderForm');
+    const statusEl = document.getElementById('status');
+    const productEl = document.getElementById('product');
+    const qtyEl = document.getElementById('quantity');
+    const sProduct = document.getElementById('sProduct');
+    const sQty = document.getElementById('sQty');
+    const sTotal = document.getElementById('sTotal');
+
+    const priceMap = {
+      'Royal Shirt Signature - ৳2,450': 2450,
+      'Golden Hour Dress - ৳3,290': 3290,
+      'Shirt + Dress Combo - ৳5,199': 5199,
+      'Premium Capsule Pack - ৳7,850': 7850
+    };
+
+    const chosen = new URLSearchParams(window.location.search).get('product');
+    if (chosen) productEl.value = decodeURIComponent(chosen);
+
+    function updateSummary() {
+      const p = productEl.value;
+      const q = Math.max(1, Number(qtyEl.value || 1));
+      const total = (priceMap[p] || 0) * q;
+      sProduct.textContent = p || '-';
+      sQty.textContent = String(q);
+      sTotal.textContent = `৳${total.toLocaleString()}`;
+    }
+
+    productEl.addEventListener('change', updateSummary);
+    qtyEl.addEventListener('input', updateSummary);
+    updateSummary();
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        statusEl.textContent = 'Please complete all required fields.';
+        statusEl.style.color = 'var(--danger)';
+        form.reportValidity();
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      statusEl.textContent = 'Processing your premium order...';
+      statusEl.style.color = 'var(--gold-soft)';
+
+      setTimeout(() => {
+        sessionStorage.setItem('aje_order', JSON.stringify(data));
+        window.location.href = 'thank-you.html';
+      }, 700);
+    });
+  </script>
+</body>
+</html>
