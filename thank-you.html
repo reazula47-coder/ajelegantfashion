@@ -57,6 +57,12 @@
         <li><span>Quantity</span><strong>${order.quantity || '-'}</strong></li>
         <li><span>Payment</span><strong>${order.payment || '-'}</strong></li>
       `;
+
+      fbq('track', 'Lead', {
+        content_name: order.product || 'Premium Order',
+        value: 1,
+        currency: 'BDT'
+      });
     }
   </script>
 </body>
