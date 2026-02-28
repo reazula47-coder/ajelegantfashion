@@ -77,7 +77,6 @@
         <li><span>Payment</span><strong>${order.payment || '-'}</strong></li>
       `;
 
-      // Meta Pixel Lead tracking on thank you page
       fbq('track', 'Lead', {
         content_name: order.product || 'Premium Order',
         value: 1,
